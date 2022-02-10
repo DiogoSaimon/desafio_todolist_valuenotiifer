@@ -158,6 +158,8 @@ class _TodoPageState extends State<TodoPage> {
               },
               child: ListTile(
                 onTap: () async {
+                  titleController.text = todo.title!;
+                  messageController.text = todo.message!;
                   await _showUpdateTaskDialog(
                     todo.id!,
                     todo.title!,

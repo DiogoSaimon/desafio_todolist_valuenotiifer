@@ -56,7 +56,9 @@ class TodoStore extends ValueNotifier<TodoState> {
   Future<void> deleteTodo(TodoModel todo) async {
     value = LoadingTodoState();
     try {
-      await service.removeTodo(todo);
+      var sucess = await service.removeTodo(todo);
+      fetchTodo();
+      value = SucessTodoState(sucess);
     } catch (e) {
       value = ErrorTodoState(e.toString());
     }
