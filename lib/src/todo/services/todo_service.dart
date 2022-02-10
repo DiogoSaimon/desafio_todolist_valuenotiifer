@@ -25,17 +25,6 @@ class TodoService {
     return response.data;
   }
 
-  // Future<TodoModel?> putTodo(TodoModel todo, String id) async {
-  //   TodoModel? updatedUser;
-
-  //   var response = await dio.put(
-  //     "$_url/$id",
-  //     data: todo.toMap(),
-  //   );
-  //   updatedUser = TodoModel.fromJson(response.data);
-  //   return updatedUser;
-  // }
-
   Future<dynamic> removeTodo(TodoModel todo) async {
     var response = await dio.delete("$_url/${todo.id}");
     var todos = response.data;
